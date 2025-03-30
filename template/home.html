@@ -1,0 +1,571 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home- Car{% endblock %}
+
+
+{% block content %}
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- First Slide -->
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'img/carousel-bg-1.jpg' %}" alt="Image">
+                <div class="carousel-caption d-flex align-items-center">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center justify-content-lg-start">
+                            <div class="col-10 col-lg-7 text-center text-lg-start">
+                                <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Car Servicing //</h6>
+                                <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Qualified Car Repair Service Center</h1>
+                                <p class="text-white">We provide top-notch car servicing with expert mechanics and high-quality equipment.</p>
+                                
+                                <!-- Read More Section (Initially Hidden) -->
+                                <div id="moreContent1" class="text-white" style="display: none;">
+                                    <p>Our car repair center specializes in engine diagnostics, brake repairs, tire replacements, and overall vehicle maintenance. We ensure that your vehicle runs smoothly and efficiently.</p>
+                                </div>
+
+                                <!-- Read More Button -->
+                                <a href="javascript:void(0);" class="btn btn-primary py-3 px-5 animated slideInDown" onclick="toggleReadMore('moreContent1', this)">Read More <i class="fa fa-arrow-down ms-3"></i></a>
+                            </div>
+                            <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
+                                <img class="img-fluid" src="{% static 'img/carousel-1.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Slide -->
+            <div class="carousel-item">
+                <img class="w-100" src="{% static 'img/carousel-bg-2.jpg' %}" alt="Image">
+                <div class="carousel-caption d-flex align-items-center">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center justify-content-lg-start">
+                            <div class="col-10 col-lg-7 text-center text-lg-start">
+                                <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Car Servicing //</h6>
+                                <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Qualified Car Wash Service Center</h1>
+                                <p class="text-white">Experience premium car wash services that leave your vehicle spotless and shining.</p>
+
+                                <!-- Read More Section (Initially Hidden) -->
+                                <div id="moreContent2" class="text-white" style="display: none;">
+                                    <p>Our car wash service includes interior and exterior cleaning, waxing, and protective coatings. We use eco-friendly products to maintain your car's shine and protect its paint.</p>
+                                </div>
+
+                                <!-- Read More Button -->
+                                <a href="javascript:void(0);" class="btn btn-primary py-3 px-5 animated slideInDown" onclick="toggleReadMore('moreContent2', this)">Read More <i class="fa fa-arrow-down ms-3"></i></a>
+                            </div>
+                            <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
+                                <img class="img-fluid" src="{% static 'img/carousel-2.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!-- Carousel End -->
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="d-flex py-5 px-4">
+                    <i class="fa fa-certificate fa-3x text-primary flex-shrink-0"></i>
+                    <div class="ps-4">
+                        <h5 class="mb-3">Quality Servicing</h5>
+                        <p>We provide exceptional car repair services using top-quality parts and equipment. Our expert technicians ensure that every repair is done with precision and care.</p>
+                        <div id="service1" style="display: none;">
+                            <p>Our quality servicing covers a range of car repairs, from engine diagnostics and oil changes to brake repairs and tire replacements. We ensure that your vehicle is running smoothly and safely.</p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="toggleReadMore('service1', this)" class="text-secondary border-bottom">
+                            Read More <i class="fa fa-arrow-down ms-3"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="d-flex bg-light py-5 px-4">
+                    <i class="fa fa-users-cog fa-3x text-primary flex-shrink-0"></i>
+                    <div class="ps-4">
+                        <h5 class="mb-3">Expert Workers</h5>
+                        <p>Our team consists of certified and experienced mechanics who are skilled in handling a wide range of car repair needs. We pride ourselves on professionalism and expertise.</p>
+                        <div id="service2" style="display: none;">
+                            <p>Each of our expert workers has undergone extensive training in various aspects of car repair, ensuring that your vehicle gets the best care possible.</p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="toggleReadMore('service2', this)" class="text-secondary border-bottom">
+                            Read More <i class="fa fa-arrow-down ms-3"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="d-flex py-5 px-4">
+                    <i class="fa fa-tools fa-3x text-primary flex-shrink-0"></i>
+                    <div class="ps-4">
+                        <h5 class="mb-3">Modern Equipment</h5>
+                        <p>We use the latest tools and technology in the car repair industry, ensuring that every job is done to the highest standards. Our modern equipment guarantees efficient and accurate repairs.</p>
+                        <div id="service3" style="display: none;">
+                            <p>From diagnostic machines to advanced repair tools, we have the latest technology to ensure accurate assessments and top-notch service.</p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="toggleReadMore('service3', this)" class="text-secondary border-bottom">
+                            Read More <i class="fa fa-arrow-down ms-3"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 pt-4" style="min-height: 400px;">
+                <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
+                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/about.jpg' %}" style="object-fit: cover;" alt="">
+                    <div class="position-absolute top-0 end-0 mt-n4 me-n4 py-4 px-5" style="background: rgba(0, 0, 0, .08);">
+                        <h1 class="display-4 text-white mb-0">15 <span class="fs-4">Years</span></h1>
+                        <h4 class="text-white">Experience</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h6 class="text-primary text-uppercase">// About Us //</h6>
+                <h1 class="mb-4"><span class="text-primary">CarServ</span> Is The Best Place For Your Auto Care</h1>
+                <p class="mb-4">With over 15 years of experience in the automotive repair industry, CarServ has built a reputation for reliable, high-quality service. We offer a range of services to keep your car in top condition.</p>
+                <div class="row g-4 mb-3 pb-3">
+                    <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="d-flex">
+                            <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                                <span class="fw-bold text-secondary">01</span>
+                            </div>
+                            <div class="ps-3">
+                                <h6>Professional & Expert</h6>
+                                <span>Our team of certified technicians ensures the highest quality repairs and customer satisfaction.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="d-flex">
+                            <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                                <span class="fw-bold text-secondary">02</span>
+                            </div>
+                            <div class="ps-3">
+                                <h6>Quality Servicing Center</h6>
+                                <span>We use only the best parts and tools to ensure that your car repair is completed to the highest standard.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="d-flex">
+                            <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1" style="width: 45px; height: 45px;">
+                                <span class="fw-bold text-secondary">03</span>
+                            </div>
+                            <div class="ps-3">
+                                <h6>Awards Winning Workers</h6>
+                                <span>Our workers have received numerous awards for their expertise and commitment to excellence in the car repair field.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="aboutMore" style="display: none;">
+                    <p>CarServ has been providing the best auto care services for over 15 years. Our experienced team uses state-of-the-art equipment and quality parts to ensure your vehicle is running at its best. We are committed to providing affordable, reliable, and professional repair services for all vehicle makes and models.</p>
+                </div>
+                <a href="javascript:void(0);" onclick="toggleReadMore('aboutMore', this)" class="btn btn-primary py-3 px-5">
+                    Read More<i class="fa fa-arrow-right ms-3"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Fact Start -->
+<div class="container-fluid fact bg-dark my-5 py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+                <i class="fa fa-check fa-2x text-white mb-3"></i>
+                <h2 class="text-white mb-2" data-toggle="counter-up">25</h2>
+                <p class="text-white mb-0">Years Experience</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
+                <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
+                <h2 class="text-white mb-2" data-toggle="counter-up">100</h2>
+                <p class="text-white mb-0">Expert Technicians</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
+                <i class="fa fa-users fa-2x text-white mb-3"></i>
+                <h2 class="text-white mb-2" data-toggle="counter-up">3000</h2>
+                <p class="text-white mb-0">Satisfied Clients</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
+                <i class="fa fa-car fa-2x text-white mb-3"></i>
+                <h2 class="text-white mb-2" data-toggle="counter-up">800</h2>
+                <p class="text-white mb-0">Completed Projects</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fact End -->
+
+<!-- Service Start -->
+<div class="container-xxl service py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-primary text-uppercase">// Our Services //</h6>
+            <h1 class="mb-5">Explore Our Services</h1>
+        </div>
+        <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="col-lg-4">
+                <div class="nav w-100 nav-pills me-4">
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 active" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button">
+                        <i class="fa fa-car-side fa-2x me-3"></i>
+                        <h4 class="m-0">Diagnostic Test</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button">
+                        <i class="fa fa-car fa-2x me-3"></i>
+                        <h4 class="m-0">Engine Servicing</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button">
+                        <i class="fa fa-cog fa-2x me-3"></i>
+                        <h4 class="m-0">Tires Replacement</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
+                        <i class="fa fa-oil-can fa-2x me-3"></i>
+                        <h4 class="m-0">Oil Changing</h4>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="tab-content w-100">
+                    <!-- Diagnostic Test -->
+                    <div class="tab-pane fade show active" id="tab-pane-1">
+                        <div class="row g-4">
+                            <div class="col-md-6" style="min-height: 350px;">
+                                <div class="position-relative h-100">
+                                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/service-1.jpg' %}" style="object-fit: cover;" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mb-3">Diagnostic Test - 15 Years Of Experience</h3>
+                                <p class="mb-4">We offer professional diagnostic tests to help identify issues with your vehicle, ensuring efficient and accurate repair.</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Advanced Diagnostic Tools</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Quick and Reliable Results</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Certified Technicians</p>
+                                
+                                <!-- Hidden extra content, shown when Read More is clicked -->
+                                <div id="diagnostic-extra-content" style="display: none;">
+                                    <p><i class="fa fa-check text-success me-3"></i>Complete vehicle diagnostics using state-of-the-art equipment.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Quick turnaround with accurate results to save you time.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Professional technicians who are experts in vehicle diagnostics.</p>
+                                </div>
+
+                                <!-- Read More Button -->
+                                <a href="javascript:void(0);" class="btn btn-primary py-3 px-5 mt-3" onclick="toggleReadMore('diagnostic-extra-content', this)">Read More <i class="fa fa-arrow-down ms-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Engine Servicing -->
+                    <div class="tab-pane fade" id="tab-pane-2">
+                        <div class="row g-4">
+                            <div class="col-md-6" style="min-height: 350px;">
+                                <div class="position-relative h-100">
+                                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/service-2.jpg' %}" style="object-fit: cover;" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mb-3">Engine Servicing - High Performance</h3>
+                                <p class="mb-4">Our engine servicing ensures your engine runs efficiently and smoothly, extending the lifespan of your vehicle.</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Engine Cleaning and Maintenance</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Fuel Efficiency Improvements</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Preventative Maintenance</p>
+
+                                <!-- Hidden extra content, shown when Read More is clicked -->
+                                <div id="engine-servicing-extra-content" style="display: none;">
+                                    <p><i class="fa fa-check text-success me-3"></i>Thorough engine inspection and cleaning to prevent wear and tear.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Optimization for better fuel consumption and engine performance.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Expert mechanics dedicated to maximizing your engine's efficiency.</p>
+                                </div>
+
+                                <!-- Read More Button -->
+                                <a href="javascript:void(0);" class="btn btn-primary py-3 px-5 mt-3" onclick="toggleReadMore('engine-servicing-extra-content', this)">Read More <i class="fa fa-arrow-down ms-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tires Replacement -->
+                    <div class="tab-pane fade" id="tab-pane-3">
+                        <div class="row g-4">
+                            <div class="col-md-6" style="min-height: 350px;">
+                                <div class="position-relative h-100">
+                                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/service-3.jpg' %}" style="object-fit: cover;" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mb-3">Tires Replacement - Safety First</h3>
+                                <p class="mb-4">Ensure the safety and performance of your vehicle with our tires replacement service, designed for optimal road grip.</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Wide Selection of Quality Tires</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Quick and Professional Service</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Affordable Pricing</p>
+
+                                <!-- Hidden extra content, shown when Read More is clicked -->
+                                <div id="tires-replacement-extra-content" style="display: none;">
+                                    <p><i class="fa fa-check text-success me-3"></i>Choice of premium tires that enhance vehicle handling and safety.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Fast tire replacement to get you back on the road quickly.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Affordable options that suit every budget without compromising quality.</p>
+                                </div>
+
+                                <!-- Read More Button -->
+                                <a href="javascript:void(0);" class="btn btn-primary py-3 px-5 mt-3" onclick="toggleReadMore('tires-replacement-extra-content', this)">Read More <i class="fa fa-arrow-down ms-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Oil Changing -->
+                    <div class="tab-pane fade" id="tab-pane-4">
+                        <div class="row g-4">
+                            <div class="col-md-6" style="min-height: 350px;">
+                                <div class="position-relative h-100">
+                                    <img class="position-absolute img-fluid w-100 h-100" src="{% static 'img/service-4.jpg' %}" style="object-fit: cover;" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mb-3">Oil Changing - Engine Care</h3>
+                                <p class="mb-4">Regular oil changes are crucial for maintaining engine health, improving vehicle performance, and preventing engine damage.</p>
+                                <p><i class="fa fa-check text-success me-3"></i>High-Quality Oil</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Expert Mechanics</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Enhanced Engine Performance</p>
+
+                                <!-- Hidden extra content, shown when Read More is clicked -->
+                                <div id="oil-changing-extra-content" style="display: none;">
+                                    <p><i class="fa fa-check text-success me-3"></i>We use only high-quality oil to extend the lifespan of your engine.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Fast and efficient service with no compromise on quality.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Regular oil changes improve engine performance and longevity.</p>
+                                </div>
+
+                                <!-- Read More Button -->
+                                <a href="javascript:void(0);" class="btn btn-primary py-3 px-5 mt-3" onclick="toggleReadMore('oil-changing-extra-content', this)">Read More <i class="fa fa-arrow-down ms-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+<!-- Booking Start -->
+<div class="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-6 py-5">
+                <div class="py-5">
+                    <h1 class="text-white mb-4">Certified and Award Winning Car Repair Service Provider</h1>
+                    <p class="text-white mb-0">We offer high-quality, reliable, and affordable car repair services. Whether it's a diagnostic test, engine servicing, tire replacement, or oil change, our team of certified experts is here to provide top-notch service for your vehicle. Book an appointment today and experience the best in car care!</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
+                    <h1 class="text-white mb-4">Book For A Service</h1>
+
+                    <!-- Django Message Display -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if "booking" in message.tags %}  <!-- ✅ Show only booking-related messages -->
+                                <div class="alert alert-success">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+
+                    <form action="{% url 'book_service' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" name="name" class="form-control border-0" placeholder="Your Name" required style="height: 55px;">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" name="email" class="form-control border-0" placeholder="Your Email" required style="height: 55px;">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <select name="service_type" class="form-select border-0" required style="height: 55px;">
+                                    <option selected disabled>Select A Service</option>
+                                    <option value="Diagnostic Test">Diagnostic Test</option>
+                                    <option value="Engine Servicing">Engine Servicing</option>
+                                    <option value="Tires Replacement">Tires Replacement</option>
+                                    <option value="Oil Changing">Oil Changing</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="date" name="service_date" class="form-control border-0" required style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea name="special_request" class="form-control border-0" placeholder="Special Request"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Booking End -->
+
+
+<!-- Team Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="text-primary text-uppercase">// Our Technicians //</h6>
+            <h1 class="mb-5">Our Expert Technicians</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/team-1.jpg' %}" alt="">
+                        <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="bg-light text-center p-4">
+                        <h5 class="fw-bold mb-0">Rajesh Kumar</h5>
+                        <small>Senior Engine Specialist</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/team-2.jpg' %}" alt="">
+                        <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="bg-light text-center p-4">
+                        <h5 class="fw-bold mb-0">Amit Sharma</h5>
+                        <small>Brake System Technician</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/team-3.jpg' %}" alt="">
+                        <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="bg-light text-center p-4">
+                        <h5 class="fw-bold mb-0">Vikram Singh</h5>
+                        <small>Engine servicing Expert</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="team-item">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
+                        <div class="team-overlay position-absolute start-0 top-0 w-100 h-100">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="bg-light text-center p-4">
+                        <h5 class="fw-bold mb-0">Rohit Mehta</h5>
+                        <small>Tire replacement Specialist</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h6 class="text-primary text-uppercase">// Testimonial //</h6>
+            <h1 class="mb-5">Our Clients Say!</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+            <div class="testimonial-item text-center">
+                <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Alyx star</h5>
+                <p>Automobile Engineer</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">"The service was excellent! The team quickly diagnosed the issue with my car and provided the best solution. Highly recommend!"</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Jane Smith</h5>
+                <p>Car Owner</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">"Amazing service! My car was fixed in no time. The staff was friendly and knowledgeable. I will definitely return!"</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-3.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Michael Johnson</h5>
+                <p>Business Owner</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">"I trust this shop with all my car servicing needs. Fast, efficient, and affordable. Excellent customer service every time!"</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="bg-light rounded-circle p-2 mx-auto mb-3" src="{% static 'img/testimonial-4.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Danie Daniels</h5>
+                <p>Office Manager</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">"I had a great experience. The mechanics were quick and efficient in resolving the issues with my car. Very satisfied!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("DOM Loaded. Checking sessionStorage...");
+
+        // Check both sessionStorage and Django session
+        let justLoggedIn = sessionStorage.getItem("justLoggedIn") || "{{ request.session.justLoggedIn|default:"" }}";
+
+        if (justLoggedIn === "true") {
+            console.log("✅ justLoggedIn found! Showing cookie popup...");
+            document.getElementById("cookie-popup").style.display = "block";
+
+            // Clear sessionStorage & Django session key to prevent showing again
+            sessionStorage.removeItem("justLoggedIn");
+        } else {
+            console.log("❌ justLoggedIn not found.");
+        }
+    });
+</script>
+
+{% endblock %}

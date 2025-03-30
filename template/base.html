@@ -1,0 +1,430 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{%block title %}CarServ - Car Repair{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!--<style>
+        html {
+            scroll-behavior: smooth;
+        }        
+    </style>-->
+    <style>
+        .cookie-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .cookie-popup button {
+            margin-left: 10px;
+            background: #f1c40f;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        /* Popup Styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        .popup-content {
+            text-align: center;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .auth-background {
+            background: url('/static/img/register_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .auth-background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay */
+            z-index: -1;
+        }  
+        .privacy-page {
+            background: white !important;
+            min-height: 100vh;
+            
+        }
+        
+        .terms-page {
+            background: #f8f9fa !important; /* Light gray background */
+            min-height: 100vh;
+            
+        }                      
+    </style>
+</head>
+
+<body class="{% if not user.is_authenticated %}{% if request.path == '/privacy-policy/' %}privacy-page{% elif request.path == '/terms-conditions/' %}terms-page{% else %}auth-background{% endif %}{% endif %}">
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light p-0">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                    <small>123 Street, New York, USA</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center py-3">
+                    <small class="far fa-clock text-primary me-2"></small>
+                    <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-phone-alt text-primary me-2"></small>
+                    <small>+012 345 6789</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-car me-3"></i>CarServ</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                
+                {% if user.is_authenticated %}
+                    <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                    <a href="{% url 'service' %}" class="nav-item nav-link">Services</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu fade-up m-0">
+                            <a href="{% url 'booking' %}" class="dropdown-item">Booking</a>
+                            <a href="{% url 'technicians' %}" class="dropdown-item">Technicians</a>
+                            <a href="{% url 'testimonials' %}" class="dropdown-item">Testimonial</a>
+                            <a href="{% url 'badrequest' %}" class="dropdown-item">404 Page</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                    <a href="{% url 'logout' %}" class="btn btn-danger py-4 px-4 ms-3">Logout <i class="fas fa-arrow-right"></i></a>
+                
+                {% else %}
+                    <a href="{% url 'register' %}" class="nav-item nav-link">Register</a>
+                    <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
+                {% endif %}
+                
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    
+
+    {% block content %}
+    {% endblock %}
+
+    
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                {% if user.is_authenticated %}
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Opening Hours</h4>
+                    <h6 class="text-light">Monday - Friday:</h6>
+                    <p class="mb-4">09.00 AM - 09.00 PM</p>
+                    <h6 class="text-light">Saturday - Sunday:</h6>
+                    <p class="mb-0">09.00 AM - 12.00 PM</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">services</h4>
+                    <a class="btn btn-link footer-service-link" href="/service#diagnostic-test" data-service="diagnostic-test">Diagnostic Test</a>
+                    <a class="btn btn-link footer-service-link" href="/service#engine-services" data-service="engine-services">Engine Servicing</a>
+                    <a class="btn btn-link footer-service-link" href="/service#tire-replacement" data-service="tire-replacement">Tires Replacement</a>
+                    <a class="btn btn-link footer-service-link" href="/service#oil-changing" data-service="oil-changing">Oil Changing</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Newsletter</h4>
+                    <p>Stay updated with the latest news and exclusive offers from CarServ.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <form id="subscription-form">
+                            {% csrf_token %}
+                            <input class="form-control border-0 w-100 py-3 ps-4 pe-5" 
+                                   type="email" id="email" name="email" 
+                                   placeholder="Your email" required>
+                            <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
+                                Sign Up
+                            </button>
+                        </form>
+                        <p id="subscription-message" class="text-light mt-2"></p>
+                    </div>
+                </div>
+                {% endif %}                              
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="d-flex flex-wrap justify-content-between align-items-center text-center">
+                    
+                    <div class="d-flex flex-wrap">
+                        &copy; <a class="border-bottom me-1" href="#">www.carserv.com</a>, All Rights Reserved.
+                        Designed By <a class="border-bottom ms-1" href="https://htmlcodex.com">velmurugan</a>
+                    </div>
+        
+                    <div class="d-flex flex-wrap">
+                        <a class="border-bottom mx-2" href="{% url 'privacy_policy' %}">Privacy Policy</a> |
+                        <a class="border-bottom mx-2" href="{% url 'terms_conditions' %}">Terms & Conditions</a>
+                    </div>
+        
+                    <div class="d-flex flex-wrap">
+                        <a href="javascript:void(0);" class="mx-2" onclick="document.getElementById('cookie-popup').style.display='block'">Cookies</a> |
+                        <a href="javascript:void(0);" class="mx-2" onclick="openHelpPopup()">Help</a>
+                    </div>
+                </div>
+            </div>
+        </div>                               
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+    
+    {% block scripts %}
+        <script>
+            function toggleReadMore(contentId, btn) {
+                
+                var content = document.getElementById(contentId);
+                if (content.style.display === "none") {
+                    content.style.display = "block"; // Show the extra content
+                    btn.innerHTML = 'Read Less <i class="fa fa-arrow-up ms-3"></i>';
+                } else {
+                    content.style.display = "none"; // Hide the extra content
+                    btn.innerHTML = 'Read More <i class="fa fa-arrow-down ms-3"></i>';
+                }
+            }                        
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute("href"));
+                        if (target) {
+                            target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                    });
+                });
+            });
+        </script>  
+    {% endblock %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let subscriptionForm = document.getElementById("subscription-form");
+    
+            if (subscriptionForm) {  // ✅ Only run if the form exists
+                subscriptionForm.addEventListener("submit", function(event) {
+                    event.preventDefault();  // Prevent form from reloading page
+    
+                    let form = this;
+                    let formData = new FormData(form);
+                    let messageBox = document.getElementById("subscription-message");
+    
+                    fetch("{% url 'subscribe' %}", {  // Replace with your subscription URL
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "X-CSRFToken": formData.get("csrfmiddlewaretoken"),
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message) {
+                            messageBox.innerText = data.message;  // Show success message
+                            form.reset();  // ✅ Clear input field
+                        } else if (data.error) {
+                            messageBox.innerText = data.error;  // Show error message
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+                });
+            }
+        });
+    </script>     
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var hash = window.location.hash;
+            if (hash) {
+                var tabElement = document.querySelector('button[data-bs-target="' + hash + '"]');
+                if (tabElement) {
+                    var tab = new bootstrap.Tab(tabElement);
+                    tab.show();
+                }
+            }
+        });
+    </script>
+
+    {% block extra_js %}
+    {% endblock %} 
+    
+    <div id="cookie-popup" class="cookie-popup">
+        <p>We use cookies to improve your experience. By continuing, you agree to our 
+            <a href="javascript:void(0);" onclick="showCookiePolicy()">Cookies Policy</a>.
+        </p>
+        <button onclick="acceptCookies()">Accept</button>
+        <button onclick="rejectCookies()">Reject</button>
+    </div>
+    
+    <!-- Hidden Cookie Policy Text -->
+    <div id="cookie-policy-text" style="display: none;">
+        <p>This website uses cookies to enhance user experience. We do not store personal data.</p>
+    </div>
+    
+    <script>
+        function showCookiePolicy() {
+            alert("This website uses cookies to enhance user experience. We do not store personal data.");
+        }
+    </script>
+    
+    <script src="{% static 'js/cookies.js' %}"></script>
+
+    <!-- Help Popup -->
+    <div id="help-popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closeHelpPopup()">&times;</span>
+            <h2>Need Help?</h2>
+            <p>Describe your issue, and we'll get back to you soon.</p>
+            <form id="help-form">
+                <input type="email" id="user-email" placeholder="Your Email" required>
+                <textarea id="help-message" placeholder="Describe your issue..." required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="help-success-message" style="color: green; display: none;"></p>
+        </div>
+    </div>    
+
+    <script src="{% static 'js/help.js' %}"></script>
+            
+</body>
+</html>
